@@ -22,7 +22,7 @@ public class AboutActivity extends AppCompatActivity {
         setContentView(R.layout.activity_about);
 
         Element versionElement = new Element();
-        versionElement.setTitle("Version 1.0");
+        versionElement.setTitle("Version 1.1");
 
         View aboutPage = new AboutPage(this)
                 .isRTL(false)
@@ -33,7 +33,7 @@ public class AboutActivity extends AppCompatActivity {
                 .addEmail("fedorenko.max02@knu.ua")
                 .addFacebook("redartelerist")
                 .addInstagram("red_artelerist")
-                .addGitHub("RedArtelerist/Ecommerce-store")
+                .addGitHub("RedArtelerist/MatrixCalculator")
                 .addItem(createCopyright())
                 .create();
 

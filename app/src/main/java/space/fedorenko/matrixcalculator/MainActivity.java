@@ -4,6 +4,7 @@ import androidx.appcompat.app.AppCompatActivity;
 
 import android.annotation.SuppressLint;
 import android.content.Intent;
+import android.graphics.Color;
 import android.os.Bundle;
 import android.text.InputFilter;
 import android.text.InputType;
@@ -594,10 +595,10 @@ public class MainActivity extends AppCompatActivity {
         );
         resWindow.setElevation(20.0f);
 
-        ImageButton closeButton = (ImageButton)resultView.findViewById(R.id.ib_close);
+        ImageButton closeButton = resultView.findViewById(R.id.ib_close);
 
         if(result != null){
-            GridLayout resLayout = (GridLayout)resultView.findViewById(R.id.matrixRes);
+            GridLayout resLayout = resultView.findViewById(R.id.matrixRes);
             MatrixView matrixView = new MatrixView(resLayout, null, DEFAULT_ROWS, DEFAULT_COLS);
 
             showResultMatrix(result, matrixView);
@@ -606,13 +607,16 @@ public class MainActivity extends AppCompatActivity {
             detText.setText(Double.toString(det));
         }
 
+        LinearLayout mainLayout = findViewById(R.id.main);
+
         closeButton.setOnClickListener(view -> {
             resWindow.dismiss();
+            mainLayout.setBackgroundColor(Color.WHITE);
             enable(true);
         });
 
-        LinearLayout mainLayout = (LinearLayout)findViewById(R.id.main);
         resWindow.showAtLocation(mainLayout, Gravity.CENTER,0,0);
+        mainLayout.setBackgroundColor(Color.GRAY);
     }
 
     private void showResultMatrix(Matrix m, MatrixView matrixView){
